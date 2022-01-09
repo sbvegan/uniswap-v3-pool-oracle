@@ -11,10 +11,21 @@ def get_weth_dai_pool():
     return pool_oracle
 
 
-def latest_observation():
-    pool_oracle = get_weth_dai_pool()
-    pool_oracle.latestObservation()
+def getTWAP(pool_oracle):
+    print("Getting TWAP...")
+    sqrtPriceX96 = pool_oracle.getTWAP(0)
+    print(sqrtPriceX96)
+    return sqrtPriceX96
+
+
+def getPriceX96FromSqrtPriceX96(pool_oracle, sqrtPriceX96):
+    print("Getting priceX96...")
+    priceX96 = pool_oracle.getPriceX96FromSqrtPriceX96(sqrtPriceX96)
+    print(priceX96)
+    return priceX96
 
 
 def main():
-    latest_observation()
+    pool_oracle = get_weth_dai_pool()
+    sqrtPriceX96 = getTWAP(pool_oracle)
+    priceX96 = getPriceX96FromSqrtPriceX96(pool_oracle, sqrtPriceX96)
