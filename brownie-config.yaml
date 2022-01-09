@@ -1,0 +1,23 @@
+dependencies:
+  - Uniswap/v3-core@1.0.0
+compiler:
+  solc:
+    remappings:
+      - "@uniswap=Uniswap/v3-core@1.0.0"
+dotenv: .env
+networks:
+  default: mainnet-fork
+  mainnet-fork:
+    infura: ${MAINNET_INFURA}
+    uniswap_v3_factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984"
+    weth: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+    dai: "0x6b175474e89094c44da98b954eedeac495271d0f"
+    zero_address: "0x0"
+  mainnet:
+    infura: ${MAINNET_INFURA}
+    uniswap_v3_factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984"
+    weth: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+    dai: "0x6b175474e89094c44da98b954eedeac495271d0f"
+    zero_address: "0x0"
+wallets:
+  from_key: ${PRIVATE_KEY}
